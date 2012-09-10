@@ -1,0 +1,2 @@
+https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
+azure site create fakename --git
