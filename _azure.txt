@@ -1,2 +1,5 @@
 https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/
+
+git add .
+git commit -am "mba"
 azure site create fakename --git
