@@ -16,9 +16,9 @@ app.get("/", function(req, res) {
 });
 
 app.get("/api/1/people/near/:lat/:lon/:distance", function(req, res, next) {
-	var lat = req.params.lat;
-	var lon = req.params.lon;
-	var distance = req.params.distance;
+	var lat = parseFloat(req.params.lat);
+	var lon = parseFloat(req.params.lon);
+	var distance = parseFloat(req.params.distance);
 
 	console.log(lat);
 	console.log(lon);
