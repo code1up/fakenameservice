@@ -43,6 +43,6 @@ app.get("/api/1/people/near/:lat/:lon/:proximity", function(req, res, next) {
 	});
 });
 
-app.listen(3000);
+app.listen(process.env.port || 3000);
 
 console.log("\n<<< started");
