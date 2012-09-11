@@ -8,14 +8,14 @@ var _headers = {
 	"content-type": 'text/json; charset="utf-8"'
 };
 
-exports.findPeopleNear = function(lat, lon, proximity, callback) {
+exports.findPeopleNear = function(lat, lon, distance, callback) {
 	var req = {
 		geo: {
 			$near: [
-				-2.108338,
-				53.623758
+				lon,
+				lat
 			],
-			$maxDistance: 0.5
+			$maxDistance: distance
 		}
 	};
 

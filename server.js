@@ -15,14 +15,14 @@ app.get("/", function(req, res) {
 	res.send("This is a Node.js application.");
 });
 
-app.get("/api/1/people/near/:lat/:lon/:proximity", function(req, res, next) {
+app.get("/api/1/people/near/:lat/:lon/:distance", function(req, res, next) {
 	var lat = req.params.lat;
 	var lon = req.params.lon;
-	var proximity = req.params.proximity;
+	var distance = req.params.distance;
 
 	console.log(lat);
 	console.log(lon);
-	console.log(proximity);
+	console.log(distance);
 
 	res.contentType("text/json");
 
@@ -30,11 +30,11 @@ app.get("/api/1/people/near/:lat/:lon/:proximity", function(req, res, next) {
 	res.send({
 		lat: lat,
 		lon: lon,
-		proximity: proximity
+		distance: distance
 	});
 	*/
 	
-	personService.findPeopleNear(lat, lon, proximity, function(error, data) {
+	personService.findPeopleNear(lat, lon, distance, function(error, data) {
 		if (error) {
 			res.send(error);
 		} else {
