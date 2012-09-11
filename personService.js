@@ -15,7 +15,7 @@ exports.findPeopleNear = function(lat, lon, distance, callback) {
 				-2.108338,
 				53.623758
 			],
-			$maxDistance: 0.01
+			$maxDistance: 0.05
 		}
 	};
 
