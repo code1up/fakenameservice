@@ -12,10 +12,10 @@ exports.findPeopleNear = function(lat, lon, distance, callback) {
 	var req = {
 		geo: {
 			$near: [
-				lon,
-				lat
+				-2.108338,
+				53.623758
 			],
-			$maxDistance: distance
+			$maxDistance: 0.01
 		}
 	};
 
