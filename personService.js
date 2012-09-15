@@ -19,6 +19,7 @@ exports.findPeopleNear = function(lat, lon, distance, callback) {
 		}
 	};
 
+	// TODO: use Node.js querystring module.
 	var reqString = JSON.stringify(req);
 	var encodedReqString = encodeURI(reqString);
 	var queryString = encodedReqString + "&apiKey=" + _apiKey;
