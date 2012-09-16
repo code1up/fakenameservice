@@ -38,24 +38,32 @@ var apnOptions = {
 util.inspect(apnOptions);
 
 var apnsConnection = new apn.Connection(apnOptions);
-var myDevice = new apn.Device("b3d5af24a7fb1e81b90158913c29b69ee47c19fb479483a62fd9dae21486f015");
-
-var note = new apn.Notification();
-
-note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
-note.badge = 3;
-note.sound = "ping.aiff";
-note.alert = "You have a new message.";
-note.payload = {
-	messageFrom: "Node.js"
-};
-
-note.device = myDevice;
 
 app.get("/", function(req, res) {
-	apnsConnection.sendNotification(note);
-	console.log("Sent notification.");
 	res.send("This is a Node.js application.");
+});
+
+app.get("/api/1/send/:message", function(req, res) {
+	var message = req.params.message;
+
+	var device = new apn.Device("b3d5af24a7fb1e81b90158913c29b69ee47c19fb479483a62fd9dae21486f015");
+	var note = new apn.Notification();
+
+	note.device = device;
+	note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
+	note.badge = 3;
+	note.sound = "ping.aiff";
+	note.alert = message;
+	note.payload = {
+		messageFrom: "Node.js"
+	};
+
+	apnsConnection.sendNotification(note);
+
+	var narrative = "Sent notification " + message;
+
+	console.log(narrative);
+	res.send(narrative);
 });
 
 app.get("/api/1/people/near/:lat/:lon/:distance", function(req, res, next) {
