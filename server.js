@@ -39,7 +39,6 @@ util.inspect(apnOptions);
 
 var apnsConnection = new apn.Connection(apnOptions);
 var myDevice = new apn.Device("b3d5af24a7fb1e81b90158913c29b69ee47c19fb479483a62fd9dae21486f015");
-// var myDevice = new apn.Device("d6c0b7c0b9e81eef2b31940de9587a7e5f4c6ec3");
 
 var note = new apn.Notification();
 
