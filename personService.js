@@ -1,4 +1,6 @@
 var request = require("request");
+var util = require("util");
+
 // TODO: var querystring = require("querystring");
 
 var _baseUrl = "https://mongolab.com/api/1/databases/fakenames/collections/person?q=";
